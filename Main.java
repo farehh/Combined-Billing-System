@@ -6,7 +6,7 @@ public class Main {
     private static Cookies cookies = new Cookies();
 
     // Write the new array to the file.
-    public static void WriteData() throws IOException{
+    public static void PushData() throws IOException{
         PrintWriter writer = new PrintWriter(new BufferedWriter(new FileWriter(indexToMonthName(cookies.getCurrentMonth()) + ".txt")));
 
         for (int block = 0; block < 10; block++) {
@@ -37,7 +37,7 @@ public class Main {
     
     
     // Take readings and calculate bills 
-    public static void NewBills() throws IOException{
+    public static void BillCalculation() throws IOException{
 
         double previousReading = 0, newReading = 0, monthlyBill = 0;
 
@@ -100,7 +100,7 @@ public class Main {
 
     // Reading data from previous month
     
-    public static void ReadPrevious() throws IOException{
+    public static void PullPreviousReadings() throws IOException{
         BufferedReader reader = new BufferedReader(new FileReader(indexToMonthName(cookies.getPreviousMonth()) + ".txt"));
         String record = " ";
         String[] record_array;
@@ -131,7 +131,7 @@ public class Main {
     
     // Creating method to assign and get ID with repsect to name in file. 
     // Line number == id;
-    public static void User_Ids() throws IOException{
+    public static void PullUserIDs() throws IOException{
 
         BufferedReader reader = new BufferedReader(new FileReader("names.txt")); 
         int id = 0;
@@ -154,9 +154,36 @@ public class Main {
         reader.close();
 
     }
+        // Creating method to load names.
+        public static void PullName() throws IOException{
+            
+            int id = 0;
+            BufferedReader reader = new BufferedReader(new FileReader("names.txt")); 
+            
+            for (int block = 0; block < 10; block++) {
+                for (int subblock = 0; subblock < 4; subblock++) {
+                    for (int street = 0; street < 10; street++) {
+                        for (int house = 0; house < 20; house++) {
+                            for (int portion = 0; portion < 3; portion++) {
+                                id++;
+                                file[block][subblock][street][house][portion] = new Record();
+                                file[block][subblock][street][house][portion].id = id;
+                                file[block][subblock][street][house][portion].name = reader.readLine();
+                                
+                            }
+                        }
+                    }
+                }
+            }
+    
+            reader.close();
+            
+            
+        }
 
+    // OverLoading names method to get name of speific cosnumer from ID.
     // Creating method to load names.
-    public static void Names(int cid) throws IOException{
+    public static void PullName(int cid) throws IOException{
         cid = cid - 1;
         int id = 0;
         BufferedReader reader = new BufferedReader(new FileReader("names.txt")); 
@@ -243,7 +270,7 @@ public class Main {
                                 System.out.print("The address is: ");
                                 System.out.printf("Sector %s, subblock %s, street %s, house %s, portion %s",block + 1, subblock + 1,street + 1,house + 1,portion + 1);
                                 System.out.println("Name of consumer is: ");
-                                Names(reqid);
+                                PullName(reqid);
                                 
                                 
                             }
@@ -281,7 +308,7 @@ public class Main {
         // WriteData();
         // System.out.println(file[9][3][9][19][2].name);
         // getCredentials();
-        Names(24000);
+        PullName(24000);
         
     }
 }
