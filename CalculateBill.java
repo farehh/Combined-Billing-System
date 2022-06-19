@@ -1,8 +1,5 @@
-/**
- * Calculates Utility Bills
- * @author @hammadsaedi 
-*/
-public class Calculate_bill {
+
+public class CalculateBill {
 
     /**
      * Calculates Electricity Bill
@@ -65,10 +62,7 @@ public class Calculate_bill {
     }
 
 
-    /**
-     * Calculates Media (Local Calls, International Calls and Internet) Bills
-     * @author @hammadsaedi
-    */
+   
     public class media {
 
         /**

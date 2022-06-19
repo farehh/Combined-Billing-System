@@ -55,29 +55,29 @@ public class Main {
                                 switch(utility){
                                     case 0:
                                         newReading = Math.round(RandomReadings.electricity(previousReading)*100)/100d;
-                                        monthlyBill = Math.round(Calculate_bill.electricity(newReading - previousReading)*100)/100d;
+                                        monthlyBill = Math.round(CalculateBill.electricity(newReading - previousReading)*100)/100d;
                                         break;
                                     case 1:
                                         newReading = Math.round(RandomReadings.gas(previousReading)*100)/100d;
-                                        monthlyBill = Math.round(Calculate_bill.gas(newReading - previousReading)*100)/100d;
+                                        monthlyBill = Math.round(CalculateBill.gas(newReading - previousReading)*100)/100d;
                                         break;
                                     case 2:
                                         newReading = Math.round(RandomReadings.water(previousReading)*100)/100d; 
-                                        monthlyBill =Math.round(Calculate_bill.water(newReading - previousReading)*100)/100d;
+                                        monthlyBill =Math.round(CalculateBill.water(newReading - previousReading)*100)/100d;
                                         break;
                                     case 4:
                                         switch(category){
                                             case 0:
                                                 newReading = Math.round(RandomReadings.media.local_calls(previousReading)*100)/100d; 
-                                                monthlyBill = Math.round(Calculate_bill.media.local_calls(newReading - previousReading)*100)/100d;
+                                                monthlyBill = Math.round(CalculateBill.media.local_calls(newReading - previousReading)*100)/100d;
                                                 break;
                                             case 1:
                                                 newReading = Math.round(RandomReadings.media.international_calls(previousReading)*100)/100d; 
-                                                monthlyBill = Math.round(Calculate_bill.media.international_calls(newReading - previousReading)*100)/100d;
+                                                monthlyBill = Math.round(CalculateBill.media.international_calls(newReading - previousReading)*100)/100d;
                                                 break;
                                             case 2:
                                                 newReading = Math.round(RandomReadings.media.internet(previousReading)*100)/100d; 
-                                                monthlyBill = Math.round(Calculate_bill.media.internet(newReading - previousReading)*100)/100d;
+                                                monthlyBill = Math.round(CalculateBill.media.internet(newReading - previousReading)*100)/100d;
                                                 break;
                                         }
                                         
@@ -308,7 +308,10 @@ public class Main {
         // WriteData();
         // System.out.println(file[9][3][9][19][2].name);
         // getCredentials();
-        PullName(24000);
-        
+        // PullName(24000);
+
+        // DeleteConsumer.ToBeReplaced(24000);
+        // DeleteConsumer.toBeReplacedWith(24000);
+        DeleteConsumer.doIt();
     }
 }
