@@ -9,6 +9,7 @@ import java.util.List;
 
 
 public class DeleteConsumer{
+
     private static Record [][][][][] file = new Record [10][4][10][20][3];
     
 
@@ -87,7 +88,7 @@ public class DeleteConsumer{
         return result;
     }
 
-    public static void doIt() {
+    public static void doIt(int cid) {
 
         List<String> lines = new ArrayList<String>();
         String line = null;
@@ -99,8 +100,8 @@ public class DeleteConsumer{
             BufferedReader br = new BufferedReader(fr);
             
             while ((line = br.readLine()) != null) {
-                if (line.contains(ToBeReplaced(24000)))
-                    line = line.replace((ToBeReplaced(24000)), (toBeReplacedWith(24000)));
+                if (line.contains(ToBeReplaced(cid)))
+                    line = line.replace((ToBeReplaced(cid)), (toBeReplacedWith(cid)));
                 lines.add(line);
             }
             fr.close();
