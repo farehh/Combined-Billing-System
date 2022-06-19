@@ -298,20 +298,13 @@ public class Main {
     */
 
     public static void main(String[] args) throws IOException {
-        // cookies.setCurrentMonth(0);
-        // cookies.setCurrentYear(2017);
-        // updateCookies();
-        // Names();
-        // User_Ids();
-        // ReadPrevious();
-        // NewBills();
-        // WriteData();
-        // System.out.println(file[9][3][9][19][2].name);
-        // getCredentials();
-        // PullName(24000);
+        
+        Scanner input = new Scanner(System.in);
+        System.out.print("Enter consumer id to be deleted: ");
+        int cid = input.nextInt();
 
-        // DeleteConsumer.ToBeReplaced(24000);
-        // DeleteConsumer.toBeReplacedWith(24000);
-        DeleteConsumer.doIt();
+        DeleteConsumer.doIt(cid);
+
+        input.close();
     }
 }
